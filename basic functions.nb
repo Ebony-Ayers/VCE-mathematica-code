@@ -1,0 +1,191 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6107,        183]
+NotebookOptionsPosition[      5386,        165]
+NotebookOutlinePosition[      5780,        181]
+CellTagsIndexPosition[      5737,        178]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nPr", "[", 
+   RowBox[{"n_", ",", "r_"}], "]"}], ":=", 
+  FractionBox[
+   RowBox[{"Factorial", "[", "n", "]"}], 
+   RowBox[{"Factorial", "[", 
+    RowBox[{"n", "-", "r"}], "]"}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nCr", "[", 
+   RowBox[{"n_", ",", "r_"}], "]"}], ":=", 
+  FractionBox[
+   RowBox[{"Factorial", "[", "n", "]"}], 
+   RowBox[{
+    RowBox[{"Factorial", "[", "r", "]"}], "*", 
+    RowBox[{"Factorial", "[", 
+     RowBox[{"n", "-", "r"}], "]"}]}]]}]}], "Input",
+ CellChangeTimes->{{3.8066948188940477`*^9, 3.8066949130260363`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"0df3d38b-f8ed-418b-815f-c1982e0c8adb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"quadraticFormula", "[", 
+   RowBox[{"var_", ",", "a_", ",", "b_", ",", "c_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"var", "\[Rule]", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "b"}], "+", 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox["b", "2"], "-", 
+          RowBox[{"4", "a", "*", "c"}]}]]}], 
+       RowBox[{"2", "a"}]]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"var", "\[Rule]", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "b"}], "-", 
+        SqrtBox[
+         RowBox[{
+          SuperscriptBox["b", "2"], "-", 
+          RowBox[{"4", "a", "*", "c"}]}]]}], 
+       RowBox[{"2", "a"}]]}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.806694948351481*^9, 3.806695043597458*^9}, {
+  3.8066950801390543`*^9, 3.806695118609541*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"81d22136-d8f0-4f2d-a946-9e04eca52f77"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"evenFunction", "[", 
+   RowBox[{"f_", ",", "var_"}], "]"}], ":=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"f", "/.", 
+      RowBox[{"var", "\[Rule]", "funcVar"}]}], ")"}], "\[Equal]", 
+    RowBox[{"(", 
+     RowBox[{"f", "/.", 
+      RowBox[{"var", "\[Rule]", 
+       RowBox[{"(", 
+        RowBox[{"-", "funcVar"}], ")"}]}]}], ")"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"oddFunction", "[", 
+   RowBox[{"f_", ",", "var_"}], "]"}], ":=", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"f", "/.", 
+      RowBox[{"var", "\[Rule]", 
+       RowBox[{"(", 
+        RowBox[{"-", "funcVar"}], ")"}]}]}], ")"}], "\[Equal]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "f"}], "/.", 
+      RowBox[{"var", "\[Rule]", 
+       RowBox[{"(", "funcVar", ")"}]}]}], ")"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.806695622057494*^9, 3.806695655879891*^9}, {
+  3.806695706376685*^9, 3.806695774520483*^9}, {3.806695964010723*^9, 
+  3.806695976020836*^9}, {3.80669604926429*^9, 3.806696050156206*^9}, {
+  3.8066962244311523`*^9, 3.806696252121263*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"537ae33d-e22e-465c-b161-80b186af46d4"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"completeTheSquareCoefficiants", "[", 
+   RowBox[{"funcVar_", ",", "a_", ",", "b_", ",", "c_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"a", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"funcVar", "+", 
+       FractionBox["b", 
+        RowBox[{"2", "a"}]]}], ")"}], "2"]}], "+", 
+   RowBox[{"(", 
+    RowBox[{"c", "-", 
+     FractionBox[
+      SuperscriptBox["b", "2"], 
+      RowBox[{"4", "a"}]]}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"completeTheSquarePolynomial", "[", 
+   RowBox[{"f_", ",", "funcVar_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Coefficient", "[", 
+     RowBox[{"f", ",", "funcVar", ",", "2"}], "]"}], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"funcVar", "+", 
+       FractionBox[
+        RowBox[{"Coefficient", "[", 
+         RowBox[{"f", ",", "funcVar", ",", "1"}], "]"}], 
+        RowBox[{"2", 
+         RowBox[{"Coefficient", "[", 
+          RowBox[{"f", ",", "funcVar", ",", "2"}], "]"}]}]]}], ")"}], "2"]}], 
+   "+", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Coefficient", "[", 
+      RowBox[{"f", ",", "funcVar", ",", "0"}], "]"}], "-", 
+     FractionBox[
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"Coefficient", "[", 
+         RowBox[{"f", ",", "funcVar", ",", "1"}], "]"}], ")"}], "2"], 
+      RowBox[{"4", 
+       RowBox[{"Coefficient", "[", 
+        RowBox[{"f", ",", "funcVar", ",", "2"}], "]"}]}]]}], 
+    ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.806698379845523*^9, 3.806698452294026*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"8dada4ed-fbb4-4482-92de-88002d18db4b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Cis", "[", "theta_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Cos", "[", "theta", "]"}], "+", 
+   RowBox[{"\[ImaginaryI]", "*", 
+    RowBox[{"Sin", "[", "theta", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.806696497499556*^9, 3.806696515571509*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"83d21319-8355-4941-ba51-7060cade0384"]
+},
+WindowSize->{1440., 767.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f938b68f-176e-42a3-b817-72845a397ac6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 667, 18, 90, "Input",ExpressionUUID->"0df3d38b-f8ed-418b-815f-c1982e0c8adb"],
+Cell[1228, 40, 935, 28, 52, "Input",ExpressionUUID->"81d22136-d8f0-4f2d-a946-9e04eca52f77"],
+Cell[2166, 70, 1244, 34, 51, "Input",ExpressionUUID->"537ae33d-e22e-465c-b161-80b186af46d4"],
+Cell[3413, 106, 1607, 47, 125, "Input",ExpressionUUID->"8dada4ed-fbb4-4482-92de-88002d18db4b"],
+Cell[5023, 155, 359, 8, 29, "Input",ExpressionUUID->"83d21319-8355-4941-ba51-7060cade0384"]
+}
+]
+*)
+
