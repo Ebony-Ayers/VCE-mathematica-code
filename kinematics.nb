@@ -1,0 +1,88 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2524,         80]
+NotebookOptionsPosition[      2084,         65]
+NotebookOutlinePosition[      2478,         81]
+CellTagsIndexPosition[      2435,         78]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"resolveForces", "[", 
+   RowBox[{"magnitude_", ",", "angle_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Sin", "[", "angle", "]"}], "*", "magnitude"}], ",", 
+    RowBox[{
+     RowBox[{"Cos", "[", "angle", "]"}], "*", "magnitude"}]}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.813018588834495*^9, 3.8130186601859837`*^9}},
+ CellLabel->
+  "In[192]:=",ExpressionUUID->"a19cdfe8-baf5-4adb-8683-65ae20ec1366"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"accellerationFromVelocityT", "[", 
+   RowBox[{"v_", ",", "t_"}], "]"}], ":=", 
+  RowBox[{"D", "[", 
+   RowBox[{"v", ",", "t"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"accellerationFromPositionT", "[", 
+   RowBox[{"x_", ",", "t_"}], "]"}], ":=", 
+  RowBox[{"D", "[", 
+   RowBox[{"x", ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "2"}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"velocityFromPositionT", "[", 
+   RowBox[{"x_", ",", "t_"}], "]"}], ":=", 
+  RowBox[{"D", "[", 
+   RowBox[{"x", ",", "t"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"accelerationFromVolocityX", "[", 
+   RowBox[{"v_", ",", "x_"}], "]"}], ":=", 
+  RowBox[{"v", "*", 
+   RowBox[{"D", "[", 
+    RowBox[{"v", ",", "x"}], "]"}]}]}]}], "Input",
+ CellChangeTimes->{{3.813018783211779*^9, 3.81301886637267*^9}, {
+  3.8130189250686007`*^9, 3.8130189675448227`*^9}, {3.8130190077795*^9, 
+  3.8130190091723757`*^9}},
+ CellLabel->
+  "In[202]:=",ExpressionUUID->"c0be2d2f-8b88-47e5-8629-6b9661de2f3d"]
+},
+WindowSize->{1440., 767.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f869eba4-3f76-4ba2-8c1f-9214b96fa3c5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 470, 13, 29, "Input",ExpressionUUID->"a19cdfe8-baf5-4adb-8683-65ae20ec1366"],
+Cell[1031, 35, 1049, 28, 122, "Input",ExpressionUUID->"c0be2d2f-8b88-47e5-8629-6b9661de2f3d"]
+}
+]
+*)
+

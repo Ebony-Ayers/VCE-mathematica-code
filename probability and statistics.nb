@@ -1,0 +1,1335 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     54538,       1327]
+NotebookOptionsPosition[     52897,       1295]
+NotebookOutlinePosition[     53291,       1311]
+CellTagsIndexPosition[     53248,       1308]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityNormalDistributionBetween", "[", 
+    RowBox[{"mean_", ",", "stdev_", ",", "a_", ",", "b_", ",", 
+     RowBox[{"numberOfStdevToShow_", ":", "4"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plot1", ",", "plot2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Random Variable (standard deviation)\>\"", ",", " ", 
+            "\"\<Probability X=x\>\""}], "}"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plot2", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"PlotRange", "[", "plot1", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plot2"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"NProbability", "[", 
+        RowBox[{
+         RowBox[{"a", "<", "x", "<", "b"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"NormalDistribution", "[", 
+           RowBox[{"mean", ",", "stdev"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityNormalDistributionGreaterThan", "[", 
+    RowBox[{"mean_", ",", "stdev_", ",", "a_", ",", 
+     RowBox[{"numberOfStdevToShow_", ":", "4"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plot1", ",", "plot2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Random Variable (standard deviation)\>\"", ",", " ", 
+            "\"\<Probability X=x\>\""}], "}"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plot2", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"PlotRange", "[", "plot1", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plot2"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"NProbability", "[", 
+        RowBox[{
+         RowBox[{"a", "<", "x"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"NormalDistribution", "[", 
+           RowBox[{"mean", ",", "stdev"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityNormalDistributionLessThan", "[", 
+    RowBox[{"mean_", ",", "stdev_", ",", "a_", ",", 
+     RowBox[{"numberOfStdevToShow_", ":", "4"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plot1", ",", "plot2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Random Variable (standard deviation)\>\"", ",", " ", 
+            "\"\<Probability X=x\>\""}], "}"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plot2", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", "a"}], 
+          "}"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"PlotRange", "[", "plot1", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plot2"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"NProbability", "[", 
+        RowBox[{
+         RowBox[{"x", "<", "a"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"NormalDistribution", "[", 
+           RowBox[{"mean", ",", "stdev"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotNormalDistributionBetween", "[", 
+    RowBox[{"mean_", ",", "stdev_", ",", "a_", ",", "b_", ",", 
+     RowBox[{"numberOfStdevToShow_", ":", "4"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plot1", ",", "plot2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Random Variable (standard deviation)\>\"", ",", " ", 
+            "\"\<Probability X=x\>\""}], "}"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plot2", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", "b"}], "}"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"PlotRange", "[", "plot1", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plot2"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotNormalDistributionGreaterThan", "[", 
+    RowBox[{"mean_", ",", "stdev_", ",", "a_", ",", 
+     RowBox[{"numberOfStdevToShow_", ":", "4"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plot1", ",", "plot2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Random Variable (standard deviation)\>\"", ",", " ", 
+            "\"\<Probability X=x\>\""}], "}"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plot2", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"PlotRange", "[", "plot1", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plot2"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotNormalDistributionLessThanPlot", "[", 
+    RowBox[{"mean_", ",", "stdev_", ",", "a_", ",", 
+     RowBox[{"numberOfStdevToShow_", ":", "4"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"plot1", ",", "plot2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", 
+           RowBox[{"mean", "+", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}]}], "}"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Random Variable (standard deviation)\>\"", ",", " ", 
+            "\"\<Probability X=x\>\""}], "}"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plot2", "=", 
+       RowBox[{"Plot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"NormalDistribution", "[", 
+            RowBox[{"mean", ",", "stdev"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", 
+           RowBox[{"mean", "-", 
+            RowBox[{"stdev", "*", "numberOfStdevToShow"}]}], ",", "a"}], 
+          "}"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"PlotRange", "[", "plot1", "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plot2"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.813289883428406*^9, 3.813290226781342*^9}, {
+  3.813290312202855*^9, 3.813290350439649*^9}, {3.813290461473543*^9, 
+  3.813290536570943*^9}, {3.8132906406400957`*^9, 3.813290655332479*^9}, {
+  3.8132907389610157`*^9, 3.8132907476849327`*^9}, {3.813290915446476*^9, 
+  3.813290949366744*^9}, {3.8132910312211237`*^9, 3.8132910512931557`*^9}, {
+  3.8132948207856216`*^9, 
+  3.8132948208051434`*^9}},ExpressionUUID->"3f2102ed-9f0e-4b4b-b0c8-\
+56a9f188d83a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nPr", "[", 
+   RowBox[{"n_", ",", "r_"}], "]"}], ":=", 
+  FractionBox[
+   RowBox[{"Factorial", "[", "n", "]"}], 
+   RowBox[{"Factorial", "[", 
+    RowBox[{"n", "-", "r"}], "]"}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nCr", "[", 
+   RowBox[{"n_", ",", "r_"}], "]"}], ":=", 
+  RowBox[{"Binomial", "[", 
+   RowBox[{"n", ",", "r"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pascalsTraingle", "[", "rows_", "]"}], ":=", 
+  RowBox[{"Column", "[", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Binomial", "[", 
+       RowBox[{"n", ",", "r"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "0", ",", 
+        RowBox[{"rows", "-", "1"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"r", ",", "0", ",", "n"}], "}"}]}], "]"}], ",", "Center"}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.813291112713851*^9, 3.813291168851459*^9}, {
+  3.8132912081112413`*^9, 3.813291339719317*^9}},
+ CellLabel->"In[90]:=",ExpressionUUID->"686642cb-b0c7-4b7f-b3f8-7b697c742090"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"probabilityAGivenB", "[", 
+   RowBox[{"aAndB_", ",", "b_"}], "]"}], ":=", 
+  FractionBox["aAndB", "b"]}]], "Input",
+ CellChangeTimes->{{3.8132914424483147`*^9, 3.8132914548903913`*^9}, {
+  3.8132915378176126`*^9, 3.81329155339532*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"a0c3c562-0229-45e5-be88-f3a73034484e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"standardDeviationFromVariance", "[", "variance_", "]"}], ":=", 
+  SqrtBox["variance"]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"varianceFromStandardDeviation", "[", "stdev_", "]"}], ":=", 
+  SuperscriptBox["stdev", "2"]}]}], "Input",
+ CellChangeTimes->{{3.8132916024109297`*^9, 3.813291677917437*^9}},
+ CellLabel->"In[97]:=",ExpressionUUID->"486928fd-8101-4f15-938a-7f3984270dbc"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"expectedBinomial", "[", 
+   RowBox[{"n_", ",", "p_"}], "]"}], ":=", 
+  RowBox[{"n", "*", "p"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"varianceBinomial", "[", 
+   RowBox[{"n_", ",", "p_"}], "]"}], ":=", 
+  RowBox[{"n", "*", "p", "*", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "p"}], ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.81329220479252*^9, 3.8132922405249166`*^9}, {
+  3.813524471048015*^9, 
+  3.8135244749638147`*^9}},ExpressionUUID->"8eb5c8c6-ea3b-4e01-89f2-\
+8e382b333f96"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DiscretePlot", "[", 
+  RowBox[{
+   RowBox[{"PDF", "[", 
+    RowBox[{
+     RowBox[{"BinomialDistribution", "[", 
+      RowBox[{"5", ",", "0.3"}], "]"}], ",", "x"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "5"}], "}"}], ",", 
+   RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+   RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+   RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.813525730512753*^9, 3.813525757424324*^9}, {
+  3.813525797397266*^9, 3.8135258610913963`*^9}, {3.813525982619658*^9, 
+  3.8135260149827147`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"ac62f146-b3bd-48f9-b207-400b75540c85"],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`],
+      AbsoluteThickness[1.6], 
+     TagBox[{
+       {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+        AbsoluteThickness[1.6], Opacity[0.2], 
+        RectangleBox[{0., 0.}, {1., 0.16806999999999994}]}, 
+       {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+        AbsoluteThickness[1.6], Opacity[0.2], 
+        RectangleBox[{1., 0.}, {2., 0.3601500000000003}]}, 
+       {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+        AbsoluteThickness[1.6], Opacity[0.2], 
+        RectangleBox[{2., 0.}, {3., 0.3087000000000002}]}, 
+       {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+        AbsoluteThickness[1.6], Opacity[0.2], 
+        RectangleBox[{3., 0.}, {4., 0.13230000000000006}]}, 
+       {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+        AbsoluteThickness[1.6], Opacity[0.2], 
+        RectangleBox[{4., 0.}, {5., 0.028350000000000024}]}, 
+       {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+        AbsoluteThickness[1.6], Opacity[0.2], 
+        RectangleBox[{5., 0.}, {6., 0.002429999999999999}]}},
+      Annotation[#, "Charting`Private`Tag$8866#1"]& ]}, 
+    TagBox[
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[
+      1.6], {}, {{}, 
+       LineBox[{{{0., 0.16806999999999994`}, {1., 0.16806999999999994`}}, {{
+        1., 0.3601500000000003}, {2., 0.3601500000000003}}, {{2., 
+        0.3087000000000002}, {3., 0.3087000000000002}}, {{3., 
+        0.13230000000000006`}, {4., 0.13230000000000006`}}, {{4., 
+        0.028350000000000024`}, {5., 0.028350000000000024`}}, {{5., 
+        0.002429999999999999}, {6., 0.002429999999999999}}}]}, {}, {{}, {}}},
+     Annotation[#, "Charting`Private`Tag$8866#1"]& ]}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "MessagesHead" -> DiscretePlot, "AxisPadding" -> Scaled[0.02], 
+    "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "DefaultPlotStyle" -> {
+      Directive[
+       RGBColor[0.368417, 0.506779, 0.709798], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.880722, 0.611041, 0.142051], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.560181, 0.691569, 0.194885], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.922526, 0.385626, 0.209179], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.528488, 0.470624, 0.701351], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.772079, 0.431554, 0.102387], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.363898, 0.618501, 0.782349], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[1, 0.75, 0], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.647624, 0.37816, 0.614037], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.571589, 0.586483, 0.], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.915, 0.3325, 0.2125], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.40082222609352647`, 0.5220066643438841, 0.85], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.9728288904374106, 0.621644452187053, 0.07336199581899142], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.736782672705901, 0.358, 0.5030266573755369], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.28026441037696703`, 0.715, 0.4292089322474965], 
+       AbsoluteThickness[1.6]]}, "DomainPadding" -> Scaled[0.02], 
+    "PointSizeFunction" -> "SmallPointSize", "RangePadding" -> Scaled[0.05]},
+  PlotRange->{{0, 6}, {0, 0.3601500000000003}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.813525757878467*^9, {3.813525799861287*^9, 3.813525827135437*^9}, 
+   3.813525861644228*^9, {3.813525988699568*^9, 3.8135260154542027`*^9}},
+ CellLabel->"Out[15]=",ImageCache->GraphicsData["CompressedBitmap", "\<\
+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
+y3KY5trtntA++B9Vrs0xavmz/L+xNuN/haRoMg==\
+\>", "ImageResolution" -> \
+96.],ExpressionUUID->"852dc0e1-ed42-418f-820d-4619591dde2b"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "plotBinomialDistributionBetween", "]"}]], "Input",
+ CellLabel->"In[53]:=",ExpressionUUID->"1a97747c-8074-4d2a-97d1-2f76a0e1409e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotBinomialDistributionBetweenInclusive", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer", ",", "b_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "a"}], ",", 
+        RowBox[{"i", "\[LessEqual]", "b"}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotBinomialDistributionBetweenExclusive", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer", ",", "b_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", 
+         RowBox[{"a", "+", "1"}]}], ",", 
+        RowBox[{"i", "\[LessEqual]", 
+         RowBox[{"b", "-", "1"}]}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotBinomialDistributionGreaterThan", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", 
+         RowBox[{"a", "+", "1"}]}], ",", 
+        RowBox[{"i", "\[LessEqual]", "n"}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotBinomialDistributionLessThan", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "0"}], ",", 
+        RowBox[{"i", "\[LessEqual]", 
+         RowBox[{"a", "-", "1"}]}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"plotBinomialDistributionEquals", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", "a"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityBinomialDistributionBetweenInclusive", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer", ",", "b_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "a"}], ",", 
+        RowBox[{"i", "\[LessEqual]", "b"}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Probability", "[", 
+        RowBox[{
+         RowBox[{"a", "\[LessEqual]", "x", "\[LessEqual]", "b"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"BinomialDistribution", "[", 
+           RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityBinomialDistributionBetweenExclusive", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer", ",", "b_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", 
+         RowBox[{"a", "+", "1"}]}], ",", 
+        RowBox[{"i", "\[LessEqual]", 
+         RowBox[{"b", "-", "1"}]}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Probability", "[", 
+        RowBox[{
+         RowBox[{"a", "<", "x", "<", "b"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"BinomialDistribution", "[", 
+           RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityBinomialDistributionGreaterThan", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", 
+         RowBox[{"a", "+", "1"}]}], ",", 
+        RowBox[{"i", "\[LessEqual]", "n"}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Probability", "[", 
+        RowBox[{
+         RowBox[{"x", ">", "a"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"BinomialDistribution", "[", 
+           RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityBinomialDistributionLessThan", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "0"}], ",", 
+        RowBox[{"i", "\[LessEqual]", 
+         RowBox[{"a", "-", "1"}]}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"plots", ",", 
+           RowBox[{"DiscretePlot", "[", 
+            RowBox[{
+             RowBox[{"PDF", "[", 
+              RowBox[{
+               RowBox[{"BinomialDistribution", "[", 
+                RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "i", ",", "i"}], "}"}], ",", 
+             RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+             RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+             RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Probability", "[", 
+        RowBox[{
+         RowBox[{"x", "<", "a"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"BinomialDistribution", "[", 
+           RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probabilityBinomialDistributionEquals", "[", 
+    RowBox[{"n_", ",", "p_", ",", "a_Integer"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", "plot1", ",", "plots"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"plot1", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "0", ",", "n"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plots", "=", 
+       RowBox[{"DiscretePlot", "[", 
+        RowBox[{
+         RowBox[{"PDF", "[", 
+          RowBox[{
+           RowBox[{"BinomialDistribution", "[", 
+            RowBox[{"n", ",", "p"}], "]"}], ",", "x"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "a", ",", "a"}], "}"}], ",", 
+         RowBox[{"ExtentSize", "\[Rule]", "Right"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"FillingStyle", "\[Rule]", "Blue"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"Show", "[", 
+        RowBox[{"plot1", ",", "plots"}], "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Probability", "[", 
+        RowBox[{
+         RowBox[{"x", "\[Equal]", "a"}], ",", 
+         RowBox[{"x", "\[Distributed]", 
+          RowBox[{"BinomialDistribution", "[", 
+           RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.813525900003438*^9, 3.813525907419181*^9}, {
+  3.813525948305879*^9, 3.813525969112741*^9}, {3.8135260213630953`*^9, 
+  3.8135263066958723`*^9}, {3.8135263911511497`*^9, 3.8135263917263947`*^9}, {
+  3.813526609635063*^9, 3.813526679273555*^9}, {3.813526709370124*^9, 
+  3.813526746665399*^9}, {3.813526797412002*^9, 3.813526879565793*^9}, {
+  3.813526929580661*^9, 3.813526929660725*^9}, {3.813526999310947*^9, 
+  3.813527018399046*^9}, {3.8135270967476883`*^9, 3.8135271265295677`*^9}, {
+  3.813527161726214*^9, 3.813527185086018*^9}, {3.813527224536249*^9, 
+  3.813527416443434*^9}},
+ CellLabel->
+  "In[154]:=",ExpressionUUID->"5ff6c1d5-7863-4b51-94cc-7d771ee302f8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Probability", "[", 
+   RowBox[{
+    RowBox[{"x", ">", "1"}], ",", 
+    RowBox[{"x", "\[Distributed]", 
+     RowBox[{"BinomialDistribution", "[", 
+      RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}], "+", 
+  RowBox[{"Probability", "[", 
+   RowBox[{
+    RowBox[{"x", "<", "1"}], ",", 
+    RowBox[{"x", "\[Distributed]", 
+     RowBox[{"BinomialDistribution", "[", 
+      RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}], "+", 
+  RowBox[{"Probability", "[", 
+   RowBox[{
+    RowBox[{"x", "==", "1"}], ",", 
+    RowBox[{"x", "\[Distributed]", 
+     RowBox[{"BinomialDistribution", "[", 
+      RowBox[{"5", ",", "0.3"}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.813527027357041*^9, 3.813527073708255*^9}},
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"d2a7789e-c5fc-4bfc-bb41-c83ded7df504"],
+
+Cell[BoxData["1.`"], "Output",
+ CellChangeTimes->{{3.8135270661717*^9, 3.813527074245885*^9}, 
+   3.813527186266358*^9},
+ CellLabel->
+  "Out[129]=",ExpressionUUID->"da51984a-d01d-4cc1-9fa2-5974fbc273f3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"plotBinomialDistributionBetweenExclusive", "[", 
+  RowBox[{"5", ",", "0.3", ",", "1", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.81352712931489*^9, 3.8135271541075487`*^9}, {
+  3.813527309119176*^9, 3.813527336935605*^9}},
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"38248c8a-fbe1-4867-be44-0b15eb900e97"],
+
+Cell[BoxData[
+ GraphicsBox[{{{
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6], 
+      TagBox[{
+        {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+         AbsoluteThickness[1.6], Opacity[0.2], 
+         RectangleBox[{0., 0.}, {1., 0.16806999999999994}]}, 
+        {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+         AbsoluteThickness[1.6], Opacity[0.2], 
+         RectangleBox[{1., 0.}, {2., 0.3601500000000003}]}, 
+        {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+         AbsoluteThickness[1.6], Opacity[0.2], 
+         RectangleBox[{2., 0.}, {3., 0.3087000000000002}]}, 
+        {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+         AbsoluteThickness[1.6], Opacity[0.2], 
+         RectangleBox[{3., 0.}, {4., 0.13230000000000006}]}, 
+        {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+         AbsoluteThickness[1.6], Opacity[0.2], 
+         RectangleBox[{4., 0.}, {5., 0.028350000000000024}]}, 
+        {RGBColor[1, 0, 0], PointSize[0.012833333333333334`], 
+         AbsoluteThickness[1.6], Opacity[0.2], 
+         RectangleBox[{5., 0.}, {6., 0.002429999999999999}]}},
+       Annotation[#, "Charting`Private`Tag$20856#1"]& ]}, 
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+       0.012833333333333334`], AbsoluteThickness[
+       1.6], {}, {{}, 
+        LineBox[{{{0., 0.16806999999999994`}, {1., 0.16806999999999994`}}, {{
+         1., 0.3601500000000003}, {2., 0.3601500000000003}}, {{2., 
+         0.3087000000000002}, {3., 0.3087000000000002}}, {{3., 
+         0.13230000000000006`}, {4., 0.13230000000000006`}}, {{4., 
+         0.028350000000000024`}, {5., 0.028350000000000024`}}, {{5., 
+         0.002429999999999999}, {6., 0.002429999999999999}}}]}, {}, {{}, {}}},
+      
+      Annotation[#, "Charting`Private`Tag$20856#1"]& ]}, {}, {}}, {{
+     {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+      0.012833333333333334`], AbsoluteThickness[1.6], 
+      TagBox[
+       {RGBColor[0, 0, 1], PointSize[0.012833333333333334`], 
+        AbsoluteThickness[1.6], Opacity[0.2], 
+        RectangleBox[{2., 0.}, {3., 0.3087000000000002}]},
+       Annotation[#, "Charting`Private`Tag$20883#1"]& ]}, 
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], PointSize[
+       0.012833333333333334`], AbsoluteThickness[
+       1.6], {}, {{}, 
+        LineBox[{{{2., 0.3087000000000002}, {3., 
+         0.3087000000000002}}}]}, {}, {{}, {}}},
+      Annotation[#, "Charting`Private`Tag$20883#1"]& ]}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "MessagesHead" -> DiscretePlot, "AxisPadding" -> Scaled[0.02], 
+    "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "DefaultPlotStyle" -> {
+      Directive[
+       RGBColor[0.368417, 0.506779, 0.709798], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.880722, 0.611041, 0.142051], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.560181, 0.691569, 0.194885], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.922526, 0.385626, 0.209179], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.528488, 0.470624, 0.701351], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.772079, 0.431554, 0.102387], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.363898, 0.618501, 0.782349], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[1, 0.75, 0], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.647624, 0.37816, 0.614037], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.571589, 0.586483, 0.], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.915, 0.3325, 0.2125], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.40082222609352647`, 0.5220066643438841, 0.85], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.9728288904374106, 0.621644452187053, 0.07336199581899142], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.736782672705901, 0.358, 0.5030266573755369], 
+       AbsoluteThickness[1.6]], 
+      Directive[
+       RGBColor[0.28026441037696703`, 0.715, 0.4292089322474965], 
+       AbsoluteThickness[1.6]]}, "DomainPadding" -> Scaled[0.02], 
+    "PointSizeFunction" -> "SmallPointSize", "RangePadding" -> Scaled[0.05]},
+  PlotRange->{{0, 6}, {0, 0.3601500000000003}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.813527137509142*^9, 3.813527187509227*^9}, {
+  3.8135273106292267`*^9, 3.8135273373558702`*^9}},
+ CellLabel->
+  "Out[153]=",ExpressionUUID->"ef0d5c1f-3a53-4972-9949-da7fcff2be51"]
+}, Open  ]]
+},
+WindowSize->{1440., 767.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"15dcc7de-bbee-414c-a157-046199658f66"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 12759, 318, 814, "Input",ExpressionUUID->"3f2102ed-9f0e-4b4b-b0c8-56a9f188d83a"],
+Cell[13320, 340, 1052, 29, 91, "Input",ExpressionUUID->"686642cb-b0c7-4b7f-b3f8-7b697c742090"],
+Cell[14375, 371, 349, 7, 46, "Input",ExpressionUUID->"a0c3c562-0229-45e5-be88-f3a73034484e"],
+Cell[14727, 380, 422, 8, 53, "Input",ExpressionUUID->"486928fd-8101-4f15-938a-7f3984270dbc"],
+Cell[15152, 390, 524, 14, 51, "Input",ExpressionUUID->"8eb5c8c6-ea3b-4e01-89f2-8e382b333f96"],
+Cell[CellGroupData[{
+Cell[15701, 408, 684, 15, 29, "Input",ExpressionUUID->"ac62f146-b3bd-48f9-b207-400b75540c85"],
+Cell[16388, 425, 7554, 158, 237, 4501, 107, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"852dc0e1-ed42-418f-820d-4619591dde2b"]
+}, Open  ]],
+Cell[23957, 586, 170, 2, 29, "Input",ExpressionUUID->"1a97747c-8074-4d2a-97d1-2f76a0e1409e"],
+Cell[24130, 590, 21910, 531, 1639, "Input",ExpressionUUID->"5ff6c1d5-7863-4b51-94cc-7d771ee302f8"],
+Cell[CellGroupData[{
+Cell[46065, 1125, 821, 22, 29, "Input",ExpressionUUID->"d2a7789e-c5fc-4bfc-bb41-c83ded7df504"],
+Cell[46889, 1149, 203, 4, 33, "Output",ExpressionUUID->"da51984a-d01d-4cc1-9fa2-5974fbc273f3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47129, 1158, 337, 6, 29, "Input",ExpressionUUID->"38248c8a-fbe1-4867-be44-0b15eb900e97"],
+Cell[47469, 1166, 5412, 126, 237, "Output",ExpressionUUID->"ef0d5c1f-3a53-4972-9949-da7fcff2be51"]
+}, Open  ]]
+}
+]
+*)
+

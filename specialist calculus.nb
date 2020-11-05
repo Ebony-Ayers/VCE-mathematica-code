@@ -1,0 +1,129 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3912,        121]
+NotebookOptionsPosition[      3286,        104]
+NotebookOutlinePosition[      3680,        120]
+CellTagsIndexPosition[      3637,        117]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"implicityD", "[", 
+   RowBox[{"f_", ",", "x_", ",", "y_", ",", 
+    RowBox[{"pow_", ":", "1"}]}], "]"}], ":=", 
+  RowBox[{"D", "[", 
+   RowBox[{
+    RowBox[{"f", "/.", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"y", "[", "x", "]"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "pow"}], "}"}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[180]:=",ExpressionUUID->"9b74b5aa-2400-4ffa-8296-f26beb54afdf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"solveForDyDx", "[", 
+   RowBox[{"eq_", ",", "x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{"eq", ",", 
+    RowBox[{
+     RowBox[{"y", "'"}], "[", "x", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.813017592034774*^9, 3.813017593787834*^9}},
+ CellLabel->
+  "In[181]:=",ExpressionUUID->"4815e6da-4c8e-482c-881b-ca77d80e63a0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D2", "[", 
+   RowBox[{"f_", ",", "x_"}], "]"}], ":=", 
+  RowBox[{"D", "[", 
+   RowBox[{"f", ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "2"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.813017660593525*^9, 3.8130176763735037`*^9}},
+ CellLabel->
+  "In[182]:=",ExpressionUUID->"49438e3c-0f54-49c1-8a6f-7bebeabec2b7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"solidOfRevolutionAroundX", "[", 
+   RowBox[{"y_", ",", "x_", ",", "a_", ",", "b_"}], "]"}], ":=", 
+  RowBox[{"\[Pi]", "*", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     SuperscriptBox["y", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "a", ",", "b"}], "}"}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"solidOfRevolutionAroundY", "[", 
+   RowBox[{"x_", ",", "y_", ",", "a_", ",", "b_"}], "]"}], ":=", 
+  RowBox[{"\[Pi]", "*", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     SuperscriptBox["x", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "a", ",", "b"}], "}"}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nSolidOfRevolutionAroundX", "[", 
+   RowBox[{"y_", ",", "x_", ",", "a_", ",", "b_"}], "]"}], ":=", 
+  RowBox[{"\[Pi]", "*", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     SuperscriptBox["y", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "a", ",", "b"}], "}"}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nSolidOfRevolutionAroundY", "[", 
+   RowBox[{"x_", ",", "y_", ",", "a_", ",", "b_"}], "]"}], ":=", 
+  RowBox[{"\[Pi]", "*", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     SuperscriptBox["x", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", "a", ",", "b"}], "}"}]}], "]"}]}]}]}], "Input",
+ CellChangeTimes->{{3.813017802549548*^9, 3.8130178127422*^9}, {
+  3.813017851962261*^9, 3.813017962166848*^9}},
+ CellLabel->
+  "In[188]:=",ExpressionUUID->"b23bfa34-775a-4d23-bbeb-e96bebbcb49c"]
+},
+WindowSize->{1440., 767.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2d0fc16f-dacd-45c6-9624-8b05e4ac3c6f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 440, 13, 29, "Input",ExpressionUUID->"9b74b5aa-2400-4ffa-8296-f26beb54afdf"],
+Cell[1001, 35, 384, 10, 29, "Input",ExpressionUUID->"4815e6da-4c8e-482c-881b-ca77d80e63a0"],
+Cell[1388, 47, 359, 10, 29, "Input",ExpressionUUID->"49438e3c-0f54-49c1-8a6f-7bebeabec2b7"],
+Cell[1750, 59, 1532, 43, 129, "Input",ExpressionUUID->"b23bfa34-775a-4d23-bbeb-e96bebbcb49c"]
+}
+]
+*)
+

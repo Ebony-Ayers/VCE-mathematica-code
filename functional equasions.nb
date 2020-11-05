@@ -1,0 +1,455 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16733,        447]
+NotebookOptionsPosition[     15525,        419]
+NotebookOutlinePosition[     15919,        435]
+CellTagsIndexPosition[     15876,        432]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"identifyFunctionalEquasions", "[", 
+    RowBox[{"f_", ",", "x_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"f", "/.", 
+            RowBox[{"x", "\[Rule]", 
+             RowBox[{"(", 
+              RowBox[{"a", "+", "b"}], ")"}]}]}], ")"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"f", "/.", 
+             RowBox[{"x", "\[Rule]", 
+              RowBox[{"(", "a", ")"}]}]}], ")"}], "+", 
+           RowBox[{"(", 
+            RowBox[{"f", "/.", 
+             RowBox[{"x", "\[Rule]", 
+              RowBox[{"(", "b", ")"}]}]}], ")"}]}]}], "]"}], ",", 
+        RowBox[{"Return", "[", "\"\<f(x+y)=f(x)+f(y), f(x)=cx\>\"", "]"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"f", "/.", 
+            RowBox[{"x", "\[Rule]", 
+             RowBox[{"(", 
+              RowBox[{"a", "+", "b"}], ")"}]}]}], ")"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"f", "/.", 
+             RowBox[{"x", "\[Rule]", 
+              RowBox[{"(", "a", ")"}]}]}], ")"}], "*", 
+           RowBox[{"(", 
+            RowBox[{"f", "/.", 
+             RowBox[{"x", "\[Rule]", 
+              RowBox[{"(", "b", ")"}]}]}], ")"}]}]}], "]"}], ",", 
+        RowBox[{
+        "Return", "[", 
+         "\"\<f(x+y)=f(x)f(y), f(x)=\!\(\*SuperscriptBox[\(a\), \(x\)]\)\>\"",
+          "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"f", "/.", 
+             RowBox[{"x", "\[Rule]", 
+              RowBox[{"(", 
+               RowBox[{"a", "*", "b"}], ")"}]}]}], ")"}], "\[Equal]", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"f", "/.", 
+              RowBox[{"x", "\[Rule]", 
+               RowBox[{"(", "a", ")"}]}]}], ")"}], "+", 
+            RowBox[{"(", 
+             RowBox[{"f", "/.", 
+              RowBox[{"x", "\[Rule]", 
+               RowBox[{"(", "b", ")"}]}]}], ")"}]}]}], ",", 
+          RowBox[{
+           RowBox[{"a", ">", "0"}], "&&", 
+           RowBox[{"b", ">", "0"}]}]}], "]"}], ",", 
+        RowBox[{
+        "Return", "[", 
+         "\"\<f(xy)=f(x)+f(y), f(x)=\!\(\*SubscriptBox[\(aLog\), \(b\)]\)(x) \
+where x>0\>\"", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"f", "/.", 
+            RowBox[{"x", "\[Rule]", 
+             RowBox[{"(", 
+              RowBox[{"a", "*", "b"}], ")"}]}]}], ")"}], "\[Equal]", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"f", "/.", 
+             RowBox[{"x", "\[Rule]", 
+              RowBox[{"(", "a", ")"}]}]}], ")"}], "*", 
+           RowBox[{"(", 
+            RowBox[{"f", "/.", 
+             RowBox[{"x", "\[Rule]", 
+              RowBox[{"(", "b", ")"}]}]}], ")"}]}]}], "]"}], ",", 
+        RowBox[{
+        "Return", "[", 
+         "\"\<f(xy)=f(x)f(y), f(x)=\!\(\*SuperscriptBox[\(x\), \(n\)]\)\>\"", 
+         "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+      "Return", "[", 
+       "\"\<Could not find a function equasion. This does not mean one does \
+not exist\>\"", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8132641062184753`*^9, 3.813264257308283*^9}, {
+  3.813264345647664*^9, 3.813264672730918*^9}, {3.813264745561224*^9, 
+  3.81326477092253*^9}, {3.813265003194702*^9, 3.813265025291765*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"f0072e7c-a4b9-4d3e-a862-54128e34b8cc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"identifyFunctionalEquasions", "[", 
+  RowBox[{
+   RowBox[{"Log", "[", "x", "]"}], ",", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.813264260659059*^9, 3.813264277975781*^9}, {
+  3.813264401801564*^9, 3.813264402369402*^9}, {3.813264455174243*^9, 
+  3.813264473934332*^9}, {3.813264683769902*^9, 3.81326470006931*^9}, {
+  3.813264731972846*^9, 3.813264732496751*^9}, {3.81326476558711*^9, 
+  3.813264766662525*^9}},
+ CellLabel->"In[72]:=",ExpressionUUID->"d18907bc-6982-404b-8743-b49139cd03a6"],
+
+Cell[BoxData["\<\"f(xy)=f(x)+f(y), f(x)=\\!\\(\\*SubscriptBox[\\(aLog\\), \
+\\(b\\)]\\)(x) where x>0\"\>"], "Output",
+ CellChangeTimes->{
+  3.8132647330201197`*^9, {3.8132647632968473`*^9, 3.813264772039124*^9}, {
+   3.813265015014769*^9, 3.813265026928355*^9}},
+ CellLabel->"Out[72]=",ExpressionUUID->"498624a7-5e38-4252-8d9a-7d0e9cc8cad2"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"findEquasionToSatisfyFunctionalEquasion", "[", 
+    RowBox[{"function_", ",", "f_", ",", "x_", ",", "y_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"function", "/.", 
+             RowBox[{
+              RowBox[{"f", "[", "x", "]"}], "\[Rule]", 
+              RowBox[{"a", "*", "x"}]}]}], "/.", 
+            RowBox[{
+             RowBox[{"f", "[", "y", "]"}], "\[Rule]", 
+             RowBox[{"a", "*", "y"}]}]}], "/.", 
+           RowBox[{
+            RowBox[{"f", "[", 
+             RowBox[{"x", "+", "y"}], "]"}], "\[Rule]", 
+            RowBox[{"a", "*", 
+             RowBox[{"(", 
+              RowBox[{"x", "+", "y"}], ")"}]}]}]}], ",", 
+          RowBox[{
+           RowBox[{"x", ">", "0"}], "&&", 
+           RowBox[{"y", ">", "0"}]}]}], "]"}], ",", 
+        RowBox[{"Return", "[", "\"\<f(x+y)=f(x)+f(y), f(x)=cx\>\"", "]"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"function", "/.", 
+             RowBox[{
+              RowBox[{"f", "[", "x", "]"}], "\[Rule]", 
+              SuperscriptBox["a", "x"]}]}], "/.", 
+            RowBox[{
+             RowBox[{"f", "[", "y", "]"}], "\[Rule]", 
+             SuperscriptBox["a", "y"]}]}], "/.", 
+           RowBox[{
+            RowBox[{"f", "[", 
+             RowBox[{"x", "+", "y"}], "]"}], "\[Rule]", 
+            SuperscriptBox["a", 
+             RowBox[{"x", "+", "y"}]]}]}], ",", 
+          RowBox[{
+           RowBox[{"x", ">", "0"}], "&&", 
+           RowBox[{"y", ">", "0"}]}]}], "]"}], ",", 
+        RowBox[{
+        "Return", "[", 
+         "\"\<f(x+y)=f(x)f(y), f(x)=\!\(\*SuperscriptBox[\(a\), \(x\)]\)\>\"",
+          "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"function", "/.", 
+             RowBox[{
+              RowBox[{"f", "[", "x", "]"}], "\[Rule]", 
+              RowBox[{"a", "*", 
+               RowBox[{"Log", "[", "x", "]"}]}]}]}], "/.", 
+            RowBox[{
+             RowBox[{"f", "[", "y", "]"}], "\[Rule]", 
+             RowBox[{"a", "*", 
+              RowBox[{"Log", "[", "y", "]"}]}]}]}], "/.", 
+           RowBox[{
+            RowBox[{"f", "[", 
+             RowBox[{"x", "*", "y"}], "]"}], "\[Rule]", 
+            RowBox[{"a", "*", 
+             RowBox[{"Log", "[", 
+              RowBox[{"x", "*", "y"}], "]"}]}]}]}], ",", 
+          RowBox[{
+           RowBox[{"x", ">", "0"}], "&&", 
+           RowBox[{"y", ">", "0"}]}]}], "]"}], ",", 
+        RowBox[{
+        "Return", "[", 
+         "\"\<f(xy)=f(x)+f(y), f(x)=\!\(\*SubscriptBox[\(aLog\), \(b\)]\)(x) \
+where x>0\>\"", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FullSimplify", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"function", "/.", 
+             RowBox[{
+              RowBox[{"f", "[", "x", "]"}], "\[Rule]", 
+              SuperscriptBox["x", "n"]}]}], "/.", 
+            RowBox[{
+             RowBox[{"f", "[", "y", "]"}], "\[Rule]", 
+             SuperscriptBox["y", "n"]}]}], "/.", 
+           RowBox[{
+            RowBox[{"f", "[", 
+             RowBox[{"x", "*", "y"}], "]"}], "\[Rule]", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"x", "*", "y"}], ")"}], "n"]}]}], ",", 
+          RowBox[{
+           RowBox[{"x", ">", "0"}], "&&", 
+           RowBox[{"y", ">", "0"}]}]}], "]"}], ",", 
+        RowBox[{
+        "Return", "[", 
+         "\"\<f(xy)=f(x)f(y), f(x)=\!\(\*SuperscriptBox[\(x\), \(n\)]\)\>\"", 
+         "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+      "Return", "[", 
+       "\"\<Could not find a function equasion. This does not mean one does \
+not exist\>\"", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.813265281752952*^9, 3.813265305663569*^9}, {
+   3.81326544622294*^9, 3.8132654474275093`*^9}, {3.813265856278247*^9, 
+   3.813265892569825*^9}, {3.8132659511646223`*^9, 3.813265965548523*^9}, {
+   3.813266004531324*^9, 3.813266102596242*^9}, 3.813266136333454*^9, {
+   3.813266302842651*^9, 3.813266377869938*^9}, {3.813266486855774*^9, 
+   3.813266487215851*^9}, {3.813266518868134*^9, 3.813266519888363*^9}, {
+   3.813266726247274*^9, 3.813266924780883*^9}},
+ CellLabel->
+  "In[152]:=",ExpressionUUID->"863535b2-8e52-4a4b-8a08-b5ef96688a19"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"findEquasionToSatisfyFunctionalEquasion", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"x", "+", "y"}], "]"}], "==", 
+    RowBox[{
+     RowBox[{"f", "[", "y", "]"}], "*", 
+     RowBox[{"f", "[", "x", "]"}]}]}], ",", "f", ",", "x", ",", "y"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.813265896934174*^9, 3.81326591881917*^9}, {
+   3.813266045629302*^9, 3.8132660457463923`*^9}, {3.813266288227853*^9, 
+   3.813266290238337*^9}, 3.813266386770276*^9, {3.8132668016597137`*^9, 
+   3.813266805013567*^9}, 3.8132668643804502`*^9},
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"32ff3d81-c047-4534-ac67-cfe940015b17"],
+
+Cell[BoxData["\<\"f(x+y)=f(x)f(y), f(x)=\\!\\(\\*SuperscriptBox[\\(a\\), \\(x\
+\\)]\\)\"\>"], "Output",
+ CellChangeTimes->{
+  3.8132664886656513`*^9, 3.813266525833469*^9, {3.8132667104695787`*^9, 
+   3.813266736397114*^9}, {3.8132667981349163`*^9, 3.8132668055420113`*^9}, {
+   3.813266861478079*^9, 3.813266879603557*^9}, 3.813266926649818*^9},
+ CellLabel->
+  "Out[153]=",ExpressionUUID->"e1811c43-aedf-4723-b609-b5b7d235a139"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"trailAndErrorFindEquasionToSatisfyFunctionalEquasion", "[", 
+    RowBox[{
+    "function_", ",", "f_", ",", "x_", ",", "y_", ",", "options_", ",", 
+     "ox_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "i", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", "=", "0"}], ",", 
+        RowBox[{"i", "\[LessEqual]", 
+         RowBox[{"Length", "[", "options", "]"}]}], ",", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"FullSimplify", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"function", "/.", 
+                 RowBox[{
+                  RowBox[{"f", "[", "x", "]"}], "\[Rule]", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"options", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "/.", 
+                    RowBox[{"ox", "\[Rule]", "x"}]}], ")"}]}]}], "/.", 
+                RowBox[{
+                 RowBox[{"f", "[", "y", "]"}], "\[Rule]", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"options", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "/.", 
+                   RowBox[{"ox", "\[Rule]", "y"}]}], ")"}]}]}], "/.", 
+               RowBox[{
+                RowBox[{"f", "[", 
+                 RowBox[{"x", "+", "y"}], "]"}], "\[Rule]", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"options", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "/.", 
+                  RowBox[{"ox", "\[Rule]", 
+                   RowBox[{"(", 
+                    RowBox[{"x", "+", "y"}], ")"}]}]}], ")"}]}]}], "/.", 
+              RowBox[{
+               RowBox[{"f", "[", 
+                RowBox[{"x", "*", "y"}], "]"}], "\[Rule]", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"options", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "/.", 
+                 RowBox[{"ox", "\[Rule]", 
+                  RowBox[{"(", 
+                   RowBox[{"x", "*", "y"}], ")"}]}]}], ")"}]}]}], ",", 
+             RowBox[{
+              RowBox[{"x", ">", "0"}], "&&", 
+              RowBox[{"y", ">", "0"}]}]}], "]"}], ",", 
+           RowBox[{"Return", "[", 
+            RowBox[{"options", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+      "Return", "[", 
+       "\"\<Could not find a function equasion. This does not mean one does \
+not exist\>\"", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.81326707735867*^9, 3.813267225441145*^9}},
+ CellLabel->
+  "In[155]:=",ExpressionUUID->"40e2e682-1b9e-4e25-bd18-00aa1b9bfbbc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"trailAndErrorFindEquasionToSatisfyFunctionalEquasion", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"x", "*", "y"}], "]"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{"x", "*", 
+      RowBox[{"f", "[", "y", "]"}]}], "+", 
+     RowBox[{"y", "*", 
+      RowBox[{"f", "[", "x", "]"}]}]}]}], ",", "f", ",", "x", ",", "y", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      SuperscriptBox["x", "2"]}], ",", 
+     SuperscriptBox["3", "x"], ",", 
+     RowBox[{"2", "x"}], ",", 
+     RowBox[{
+      RowBox[{"-", "3"}], "x", "*", 
+      RowBox[{"Log", "[", "x", "]"}]}], ",", 
+     RowBox[{"2", "*", 
+      RowBox[{"Log", "[", "x", "]"}]}]}], "}"}], ",", "x"}], "]"}]], "Input",
+ CellChangeTimes->{{3.813267227571357*^9, 3.8132672927922792`*^9}},
+ CellLabel->
+  "In[156]:=",ExpressionUUID->"d338e9a2-8ed6-4be8-a9cf-a23e099b6389"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "3"}], " ", "x", " ", 
+  RowBox[{"Log", "[", "x", "]"}]}]], "Output",
+ CellChangeTimes->{3.813267294165267*^9},
+ CellLabel->
+  "Out[156]=",ExpressionUUID->"56ae2aa3-3573-4896-bf32-ecc146ac2800"]
+}, Open  ]]
+},
+WindowSize->{1440., 767.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"590d84cf-2df0-43f2-802e-658342d7f85a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3992, 107, 161, "Input",ExpressionUUID->"f0072e7c-a4b9-4d3e-a862-54128e34b8cc"],
+Cell[CellGroupData[{
+Cell[4575, 131, 519, 9, 29, "Input",ExpressionUUID->"d18907bc-6982-404b-8743-b49139cd03a6"],
+Cell[5097, 142, 341, 5, 33, "Output",ExpressionUUID->"498624a7-5e38-4252-8d9a-7d0e9cc8cad2"]
+}, Open  ]],
+Cell[5453, 150, 4827, 125, 161, "Input",ExpressionUUID->"863535b2-8e52-4a4b-8a08-b5ef96688a19"],
+Cell[CellGroupData[{
+Cell[10305, 279, 654, 15, 29, "Input",ExpressionUUID->"32ff3d81-c047-4534-ac67-cfe940015b17"],
+Cell[10962, 296, 429, 7, 33, "Output",ExpressionUUID->"e1811c43-aedf-4723-b609-b5b7d235a139"]
+}, Open  ]],
+Cell[11406, 306, 2972, 74, 154, "Input",ExpressionUUID->"40e2e682-1b9e-4e25-bd18-00aa1b9bfbbc"],
+Cell[CellGroupData[{
+Cell[14403, 384, 870, 24, 32, "Input",ExpressionUUID->"d338e9a2-8ed6-4be8-a9cf-a23e099b6389"],
+Cell[15276, 410, 233, 6, 33, "Output",ExpressionUUID->"56ae2aa3-3573-4896-bf32-ecc146ac2800"]
+}, Open  ]]
+}
+]
+*)
+

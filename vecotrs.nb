@@ -1,0 +1,75 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2025,         67]
+NotebookOptionsPosition[      1587,         52]
+NotebookOutlinePosition[      1981,         68]
+CellTagsIndexPosition[      1938,         65]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cartesionFromParametric", "[", 
+   RowBox[{"x_", ",", "y_", ",", "t_"}], "]"}], ":=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{"Eliminate", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}], ",", "t"}], "]"}], ",", "y"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.813019427291786*^9, 3.81301948050371*^9}},
+ CellLabel->
+  "In[206]:=",ExpressionUUID->"1bb3419f-ff78-46ac-be06-f833747f9e2d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lamisTheorum", "[", 
+   RowBox[{
+   "p_", ",", "pAngle_", ",", "q_", ",", "qAngle_", ",", "r_", ",", 
+    "rAngle_"}], "]"}], ":=", 
+  RowBox[{
+   FractionBox["p", 
+    RowBox[{"Sin", "[", "pAngle", "]"}]], "\[Equal]", 
+   FractionBox["q", 
+    RowBox[{"Sin", "[", "qAngle", "]"}]], "\[Equal]", 
+   FractionBox["r", 
+    RowBox[{"Sin", "[", "rAngle", "]"}]]}]}]], "Input",
+ CellChangeTimes->{{3.813019606616489*^9, 3.8130197285715637`*^9}},
+ CellLabel->
+  "In[209]:=",ExpressionUUID->"1c47fadc-d54f-496e-8970-4dcca0c4d2e7"]
+},
+WindowSize->{1440., 767.25},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.1 for Linux x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"29531a75-43bd-4f3b-bf0b-d15f9b3fd420"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 464, 13, 29, "Input",ExpressionUUID->"1bb3419f-ff78-46ac-be06-f833747f9e2d"],
+Cell[1025, 35, 558, 15, 76, "Input",ExpressionUUID->"1c47fadc-d54f-496e-8970-4dcca0c4d2e7"]
+}
+]
+*)
+
